@@ -1,0 +1,26 @@
+[
+  {
+    "id": "c1",
+    "title": "Holidays",
+    "description": "Holidays season has so much to offer - creative activities",
+    "img": "/images/christmas_night_4-wallpaper-1920x1080.jpg"
+  },
+  {
+    "id": "c2",
+    "title": "Wildest West",
+    "description": "Wondrous adventures in the Wildest West",
+    "img": "/images/funny_wild_west_gunfighters-wallpaper-1920x1080.jpg"
+  },
+  {
+    "id": "c3",
+    "title": "Back to nature",
+    "description": "The secret to happiness is touching grass",
+    "img": "/images/lis-wallpaper-1920x1080.jpg"
+  },
+  {
+    "id": "c4",
+    "title": "The eye of the tiger",
+    "description": "And if you walk around there's another eye too",
+    "img": "/images/tiger_30-wallpaper-1920x1080.jpg"
+  }
+]
