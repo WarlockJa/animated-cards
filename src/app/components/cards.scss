@@ -1,29 +1,35 @@
+@use "../media.scss";
 .cardsWrapper {
-  max-width: var(--max-width);
-  border-radius: 2em;
-  height: 100%;
   width: 100%;
+  max-width: var(--max-width);
+
+  border-radius: 1em;
   background: linear-gradient(45deg, #3487a3, #6687a3, #8447a3);
+  overflow: hidden;
+
   display: flex;
   align-items: center;
   justify-content: center;
 
   .card {
-    height: 28em;
     display: flex;
     flex-wrap: nowrap;
     justify-content: flex-start;
 
+    height: 100vh;
+    max-height: 28em;
+    width: 5%;
+
+    transition: width 600ms cubic-bezier(0.28, -0.03, 0, 0.99);
+
     .card__body {
-      width: 5em;
+      width: 100%;
       background-size: cover;
       cursor: pointer;
       overflow: hidden;
-      border-radius: 2em;
-      margin: 0 10px;
+      border-radius: 1em;
       display: flex;
       align-items: flex-end;
-      transition: 0.6s cubic-bezier(0.28, -0.03, 0, 0.99);
       box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.8);
 
       .card__body__row {
@@ -40,21 +46,24 @@
           justify-content: center;
           align-items: center;
           margin: 1em;
+
+          opacity: 0;
+          transform: translateY(4em);
+          transition-delay: 300ms;
+          transition: transform 300ms ease, opacity 300ms ease;
         }
         .card__body__row--description {
           display: flex;
           justify-content: center;
           flex-direction: column;
 
-          overflow: hidden;
-
           height: 5em;
           width: 32em;
-          opacity: 0;
 
-          transform: translateY(2em);
-          transition-delay: 0.3s;
-          transition: all 0.3s ease;
+          opacity: 0;
+          transform: translateY(4em);
+          transition-delay: 300ms;
+          transition: transform 300ms ease, opacity 300ms ease;
 
           .text {
             text-shadow: 0.07em 0 black, 0 0.07em black, -0.07em 0 black,
@@ -73,20 +82,47 @@
     }
     .card--input {
       opacity: 0;
-      width: 0;
+      position: absolute;
     }
+  }
 
-    .card--input:checked + label {
-      width: 37.5em;
-    }
+  .card--active {
+    width: 85%;
 
-    .card--input:checked + label {
+    .card__body {
       .card__body__row {
+        .card__body__row--icon {
+          opacity: 1;
+          transform: translateY(0);
+        }
         .card__body__row--description {
           opacity: 1;
           transform: translateY(0);
         }
       }
+    }
+  }
+
+  @include media.min-width(large) {
+    border-radius: 2em;
+    gap: 1%;
+
+    .card {
+      width: 9%;
+
+      .card__body {
+        border-radius: 2em;
+        .card__body__row {
+          .card__body__row--icon {
+            opacity: 1;
+            transform: none;
+          }
+        }
+      }
+    }
+
+    .card--active {
+      width: 70%;
     }
   }
 }
